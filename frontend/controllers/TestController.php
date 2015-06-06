@@ -8,7 +8,7 @@ class TestController extends Controller
 
     public function actionIndex()
     {
-		echo date("m月d日",strtotime('+1 day'));exit;
+		echo date("m月d日",strtotime('+2 day'));exit;
         return $this->render('site/index');
     }
 
