@@ -93,11 +93,11 @@ class TestController extends Controller
 		$data = array(
 
 			'amount'		=>10000.0,
-			'idCarkNumber'=>'130182198710165711',
+			'idCarkNumber'=>'1234123',
 			'bankId'	=>'2',
 			'bankName'	=>'工商银行',
-			'cardNumber'=>'6222020200094284029',
-			'name'		=>'杜立朋'
+			'cardNumber'=>'2332',
+			'name'		=>'asdf'
 		);
 		return $data;
 	}
