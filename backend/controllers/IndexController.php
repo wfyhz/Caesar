@@ -41,7 +41,8 @@ class IndexController extends \yii\web\Controller
     }
 	public function actionLogin()
 	{
-		echo 'login';
+		$this->layout = false;
+		return $this->render('index');
 	}
 
 }
