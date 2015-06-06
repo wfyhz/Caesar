@@ -21,6 +21,7 @@ return [
         'user' => [
             'identityClass' => 'backend\models\Authuser',
             'enableAutoLogin' => true,
+			'loginUrl'	=>['index/login']
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
