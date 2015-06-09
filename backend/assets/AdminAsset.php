@@ -11,6 +11,11 @@ class AdminAsset extends EasyuiAsset
 		'yii\web\JqueryAsset',
 		'yii\bootstrap\BootstrapAsset',
 	];
+	public $basePath = '@webroot';
+	public $baseUrl = '@web';
+	public $css = [
+		'css/login.css',
+	];
 
 	protected function applyTheme()
 	{

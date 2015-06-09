@@ -14,7 +14,7 @@ class TestController extends Controller
 
 	public  function actionTest()
 	{
-		$token = '80far0hH5YX0ODYVQwBdgw0sc9IHERgATGxQNSy7+04';
+		$token = 'e220IMWuqCKPoihLrTVq9hUp0pW1l5VMPENKAXb2eA';
 		$params = Yii::$app->getRequest()->getQueryParams();
 		$method = $params['method'];
 		$data = array(
@@ -94,9 +94,9 @@ class TestController extends Controller
 
 			'amount'		=>10000.0,
 			'idCarkNumber'=>'1234123',
-			'bankId'	=>'2',
-			'bankName'	=>'工商银行',
-			'cardNumber'=>'2332',
+			'bankId'	=>0,
+			'bankName'	=>0,
+			'cardNumber'=>'6225880128217123',
 			'name'		=>'asdf'
 		);
 		return $data;
@@ -143,7 +143,8 @@ class TestController extends Controller
 	{
 		$data = array(
 			'principal'	=>'45000',
-			'multiple'		=>'5',
+//			'principal'	=>'45000',
+			'multiple'		=>'2',
 			'type'			=>'2',
 			'time'			=>'6'
 		);
