@@ -1,8 +1,8 @@
 <?php
 /* @var $this yii\web\View */
-use backend\assets\AdminAsset;
+use backend\assets\LoginAsset;
 use yii\helpers\Html;
-AdminAsset::register($this);
+LoginAsset::register($this);
 $this->beginPage();
 ?>
 <!DOCTYPE html>
@@ -17,8 +17,16 @@ $this->beginPage();
 <body class="login">
 	<?php $this->beginBody()?>
 		<div class="login-wrap">
-			<div class="login-container">
-
+			<div class="container login-container">
+				<a href="#"><img width="100" height="30" src="images/logo-login@2x.png"></a>
+				<form action="#" method="post">
+					<div class="form-group">
+						<input class="form-control" type="text" placeholder="用户名">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="password" placeholder="密码">
+					</div>
+				</form>
 			</div>
 		</div>
 	<?php $this->endBody();?>

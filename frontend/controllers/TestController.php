@@ -51,6 +51,9 @@ class TestController extends Controller
 			case 'Pay.payment':	//支付
 				$p = $this->_recharge();
 				break;
+			case 'Pay.withdraw':	//支付
+				$p = $this->_withdraw();
+				break;
 			default:
 				echo '参数错误';
 				exit();
@@ -180,7 +183,15 @@ class TestController extends Controller
 	private function _recharge()
 	{
 		$data = array(
-			'sign'=>'{"sign":"b20fd70b3c6dd40308f213cbe01230e1","oid_paybill":"2015060675271100","ret_code":"0000","result_pay":"SUCCESS","no_order":"6712015060612244297101579","oid_partner":"201408071000001543","agreementno":"2015060579670694","sign_type":"MD5","ret_msg":"交易成功!","dt_order":"20150606122449","money_order":"0.01","settle_date":"20150606","info_order":""}'
+			'sign'=>'{"oid_paybill":"2015061077246409","ret_code":"0000","settle_date":"20150610","money_order":"0.01","result_pay":"SUCCESS","dt_order":"20150610155645","info_order":"20150610155645","no_order":"6932015061015564499995253","agreementno":"2015060881003485","oid_partner":"201408071000001543","ret_msg":"交易成功","sign":"d5b3a693a57de96e0e56e50f293c0404","sign_type":"MD5"}'
+		);
+		return $data;
+	}
+	private function _withdraw()
+	{
+		$data = array(
+			'amount'	=>123,
+			'authcode'=>'234945'
 		);
 		return $data;
 	}

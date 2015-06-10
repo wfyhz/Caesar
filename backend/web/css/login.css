@@ -6,9 +6,9 @@ body{
 }
 .login
 {
-    background:rgba(0,0,0,0) url('../images/login-blurry-bg.jpg') no-repeat scroll center center / cover;
+    background:rgba(0,0,0,0) url('../images/login-blurry-bg.jpg') no-repeat scroll;
     padding:0;
-    position: relative;
+    /*position: relative;*/
 }
 .login-wrap
 {
@@ -28,7 +28,35 @@ body.login .login-container{
     top: 50%;
     transition: all 1s ease 0.5s;
     width: 380px;
+    text-align: center;
 }
 body.login .login-container.active{
     opacity: 1;
+}
+body.login .login-container .form-group{
+    margin-bottom: 0;
+    position:relative;
+}
+body.login .login-container input.form-control {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: transparent none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color #d6d6d6;
+    border-image: none;
+    border-radius: 0;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    box-shadow: none;
+    font-size: 15px;
+    height: 48px;
+    padding-left: 0;
+    padding-right: 0;
+}
+input[type="text"] {
+    box-shadow: none !important;
+}
+.form-control {
+    transition: all 0.5s ease 0s;
 }
