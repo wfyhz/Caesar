@@ -30,7 +30,7 @@ class LoginForm extends Model
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
 			['verifyCode','required'],
-			//['verifyCode','captcha'],
+			['verifyCode','captcha','captchaAction'=>'index/captcha'],
         ];
     }
 
@@ -46,7 +46,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, '用户名或密码不正确.');
             }
         }
     }

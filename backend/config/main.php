@@ -11,7 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-	'language'	=>'zh_CN',
+	'language'	=>'zh-CN',
     'modules' => [
         'gii'   =>[
             'class' =>'yii\gii\Module',

@@ -34,41 +34,18 @@ $this->title = 'Admin后台管理';
 						->passwordInput(['placeholder'=>$model->getAttributeLabel('password')]) ?>
 				</div>
 				<div class="row">
-					<?= $form->field($model, 'verifyCode',['enableLabel'=>false, 'options'=>['class'=>'col-sm-4']])
+					<?= $form->field($model, 'verifyCode',['enableLabel'=>false, 'options'=>['class'=>'col-sm-4 ']])
 						->textInput(['placeholder'=>$model->getAttributeLabel('verifyCode')]) ?>
-					<?= $form->field($model, 'verifyCode',['enableLabel'=>false, 'options'=>['class'=>'col-sm-5']])
+					<?= $form->field($model, 'verifyCode',['enableLabel'=>false, 'options'=>['class'=>'col-sm-5'],'enableError'=>false])
 						->widget(Captcha::className(),[
 							'template' => "{image}",
 							'imageOptions' => ['alt' => '验证码'],
 							'captchaAction'	=>'index/captcha'
 						])?>
 				</div>
-
-
-
-
-				<!--
-				<form action="#" method="post">
-					<div class="row">
-						<div class="form-group col-sm-12">
-							<input class="form-control" type="text" placeholder="用户名">
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-sm-12">
-							<input class="form-control" type="password" placeholder="密码">
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-sm-6">
-							<input class="form-control" type="text" placeholder="验证码">
-						</div>
-						<div class="form-group col-sm-6">
-
-						</div>
-					</div>
-
-				</form>-->
+				<div class="row">
+					<?= Html::submitButton('登录',['class'=>'btn btn-primary'])?>
+				</div>
 			</div>
 		</div>
 	<?php $this->endBody();?>
