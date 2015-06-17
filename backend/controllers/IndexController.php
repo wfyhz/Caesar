@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use backend\models\LoginForm;
 class IndexController extends \yii\web\Controller
 {
 	/**
@@ -17,7 +18,7 @@ class IndexController extends \yii\web\Controller
 				'class' => AccessControl::className(),
 				'rules' => [
 					[
-						'actions' => ['login', 'error'],
+						'actions' => ['login', 'error', 'captcha'],
 						'allow' => true,
 					],
 					[
@@ -35,6 +36,16 @@ class IndexController extends \yii\web\Controller
 			],
 		];
 	}
+	public function actions()
+	{
+		return [
+			'captcha'	=>[
+				'class'		=>'yii\captcha\CaptchaAction',
+				'maxLength'	=>5,
+				'minLength'	=>5
+			],
+		];
+	}
     public function actionIndex()
     {
         return $this->render('index');
@@ -42,7 +53,18 @@ class IndexController extends \yii\web\Controller
 	public function actionLogin()
 	{
 		$this->layout = false;
-		return $this->render('index');
+		if (!\Yii::$app->user->isGuest) {
+			return $this->goHome();
+		}
+
+		$model = new LoginForm();
+		if ($model->load(Yii::$app->request->post()) && $model->login()) {
+			return $this->goBack();
+		} else {
+			return $this->render('index', [
+				'model' => $model,
+			]);
+		}
 	}
 
 }

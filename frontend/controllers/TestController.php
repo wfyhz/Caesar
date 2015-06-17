@@ -8,13 +8,14 @@ class TestController extends Controller
 
     public function actionIndex()
     {
+
 		echo date("m月d日",strtotime('+2 day'));exit;
         return $this->render('site/index');
     }
 
 	public  function actionTest()
 	{
-		$token = 'e220IMWuqCKPoihLrTVq9hUp0pW1l5VMPENKAXb2eA';
+		$token = '6aa0v6VBq99tiPZD/mstjVyWS4UKdzk+0CxGOktAcw';
 		$params = Yii::$app->getRequest()->getQueryParams();
 		$method = $params['method'];
 		$data = array(
@@ -54,13 +55,18 @@ class TestController extends Controller
 			case 'Pay.withdraw':	//支付
 				$p = $this->_withdraw();
 				break;
+			case 'licai.lcbuy':	//余额购买理财
+				$p = $this->_lcbuy();
+				break;
+			case 'sms.withdrawSmsCode':	//提现验证码
+				$p = $this->_withdraw_sms_code();
+				break;
 			default:
 				echo '参数错误';
 				exit();
 		}
 
 		$data = array_merge($data, $p);
-
 		$ch = curl_init ();
 
 		curl_setopt ( $ch, CURLOPT_URL, 'http://mapi.qianyilc.com' );
@@ -69,7 +75,9 @@ class TestController extends Controller
 		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
 		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
 		$return = curl_exec ( $ch );
+		//var_dump(curl_getinfo($ch));
 		curl_close ( $ch );
+
 
 		echo $return;
 	}
@@ -80,7 +88,7 @@ class TestController extends Controller
 	private function _login()
 	{
 		$data = array(
-			'mobile'	=>'15210513963',
+			'mobile'	=>'15010116691',
 			'authcode'=>'1001',
 			'plat'		=>'1',
 			'imei'		=>'asdf'
@@ -95,12 +103,16 @@ class TestController extends Controller
 	{
 		$data = array(
 
-			'amount'		=>10000.0,
-			'idCarkNumber'=>'1234123',
-			'bankId'	=>0,
-			'bankName'	=>0,
-			'cardNumber'=>'6225880128217123',
-			'name'		=>'asdf'
+			'amount'		=>'10000.0',
+			'idCarkNumber'=>'411123198801012546',
+			'bankId'	=>1,
+			'bankName'	=>'招商银行',
+			'cardNumber'=>'6225881014307465',
+			'name'		=>'苏兴',
+			'pid'	=>'359',
+			'fCode'	=>'asdf',
+			'buyAmount'	=>'1000',
+			'pidType'	=>'3'
 		);
 		return $data;
 	}
@@ -111,8 +123,9 @@ class TestController extends Controller
 	private  function _lc_before_buy()
 	{
 		$data = array(
-			'pid'	=>'333',
-			'amount'	=>'100.00'
+			'pid'	=>'357',
+			'amount'	=>'100.00',
+			'inviteCode'=>'asdfo'
 		);
 		return $data;
 	}
@@ -183,7 +196,7 @@ class TestController extends Controller
 	private function _recharge()
 	{
 		$data = array(
-			'sign'=>'{"oid_paybill":"2015061077246409","ret_code":"0000","settle_date":"20150610","money_order":"0.01","result_pay":"SUCCESS","dt_order":"20150610155645","info_order":"20150610155645","no_order":"6932015061015564499995253","agreementno":"2015060881003485","oid_partner":"201408071000001543","ret_msg":"交易成功","sign":"d5b3a693a57de96e0e56e50f293c0404","sign_type":"MD5"}'
+			'sign'=>'{"sign":"072a2bf4f4bfd56d8a24d825b89cc4e1","oid_paybill":"2015060575007707","ret_code":"0000","result_pay":"SUCCESS","no_order":"6712015060520373510249989","oid_partner":"201408071000001543","agreementno":"2015060579670694","sign_type":"MD5","ret_msg":"交易成功!","dt_order":"20150605203739","money_order":"0.01","settle_date":"20150605","info_order":""}'
 		);
 		return $data;
 	}
@@ -195,4 +208,20 @@ class TestController extends Controller
 		);
 		return $data;
 	}
+
+	private function _lcbuy()
+	{
+		$data = array(
+			'pid'	=>'359',
+			'money'=>'100.00'
+		);
+		return $data;
+	}
+
+	private function _withdraw_sms_code()
+	{
+		$data = array();
+		return $data;
+	}
+
 }

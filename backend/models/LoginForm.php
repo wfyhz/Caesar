@@ -12,6 +12,7 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = true;
+	public $verifyCode;
 
     private $_user = false;
 
@@ -28,6 +29,8 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+			['verifyCode','required'],
+			//['verifyCode','captcha'],
         ];
     }
 
@@ -75,4 +78,18 @@ class LoginForm extends Model
 
         return $this->_user;
     }
+
+	/**
+	 * 字段对应的名字
+	 * @return array
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'username'		=>'用户名',
+			'password'		=>'密码',
+			'rememberMe'	=>'自动登录',
+			'verifyCode'	=>'验证码',
+		];
+	}
 }
