@@ -138,6 +138,9 @@ AppAsset::register($this);
 				<?= \backend\components\iMenu::widget($menus) ?>
 			</div>
 			<div class="col-md-9">
+				<?= Breadcrumbs::widget([
+					'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+				]) ?>
 				<?= $content ?>
 			</div>
 		</div>
