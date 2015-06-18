@@ -18,7 +18,7 @@ class IndexController extends BaseController
 				'class' => AccessControl::className(),
 				'rules' => [
 					[
-						'actions' => ['login', 'error', 'captcha'],
+						'actions' => ['login', 'error'],
 						'allow' => true,
 					],
 					[
@@ -36,19 +36,10 @@ class IndexController extends BaseController
 			],
 		];
 	}
-	public function actions()
-	{
-		return [
-			'captcha'	=>[
-				'class'		=>'yii\captcha\CaptchaAction',
-				'maxLength'	=>5,
-				'minLength'	=>5
-			],
-		];
-	}
+
     public function actionIndex()
     {
-        echo 'index';
+        return $this->render('index');
     }
 	public function actionLogin()
 	{

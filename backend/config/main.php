@@ -22,7 +22,7 @@ return [
         'user' => [
             'identityClass' => 'backend\models\Authuser',
             'enableAutoLogin' => true,
-			'loginUrl'	=>['index/login']
+			'loginUrl'	=>['site/login']
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

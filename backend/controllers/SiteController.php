@@ -22,7 +22,7 @@ class SiteController extends BaseController
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','captcha'],
                         'allow' => true,
                     ],
                     [
@@ -50,6 +50,11 @@ class SiteController extends BaseController
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
+			'captcha'	=>[
+				'class'		=>'yii\captcha\CaptchaAction',
+				'maxLength'	=>5,
+				'minLength'	=>5
+			],
         ];
     }
 
@@ -60,6 +65,7 @@ class SiteController extends BaseController
 
     public function actionLogin()
     {
+		$this->layout = false;
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -68,7 +74,7 @@ class SiteController extends BaseController
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            return $this->render('login', [
+            return $this->render('login2', [
                 'model' => $model,
             ]);
         }
