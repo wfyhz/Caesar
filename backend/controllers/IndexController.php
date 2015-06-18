@@ -6,7 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use backend\models\LoginForm;
-class IndexController extends \yii\web\Controller
+class IndexController extends BaseController
 {
 	/**
 	 * @inheritdoc
