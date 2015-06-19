@@ -61,7 +61,7 @@ AppAsset::register($this);
 				'items'=>[
 					[
 						'label'	=>'<i class="glyphicon glyphicon-user"></i>用户管理',
-						'url'		=>['site/index'],
+						'url'		=>['auth-user/index'],
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-th-list"></i>菜单管理',
@@ -134,10 +134,10 @@ AppAsset::register($this);
 	?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-lg-3 col-md-3 col-sm-3">
 				<?= \backend\components\iMenu::widget($menus) ?>
 			</div>
-			<div class="col-md-9">
+			<div class="col-lg-9 col-md-9 col-sm-9">
 				<?= Breadcrumbs::widget([
 					'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 				]) ?>

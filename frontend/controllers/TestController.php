@@ -61,6 +61,9 @@ class TestController extends Controller
 			case 'sms.withdrawSmsCode':	//提现验证码
 				$p = $this->_withdraw_sms_code();
 				break;
+			case 'index.bankTip':	//银行维护信息
+				$p = array();
+				break;
 			default:
 				echo '参数错误';
 				exit();
@@ -123,9 +126,9 @@ class TestController extends Controller
 	private  function _lc_before_buy()
 	{
 		$data = array(
-			'pid'	=>'357',
+			'pid'	=>'360',
 			'amount'	=>'100.00',
-			'inviteCode'=>'asdfo'
+			//'inviteCode'=>'asdfo'
 		);
 		return $data;
 	}
