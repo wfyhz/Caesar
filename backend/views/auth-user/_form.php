@@ -9,12 +9,12 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="auth-user-form">
+    <?php $form = ActiveForm::begin(['options'=>['class'=>'form-horizontal']]); ?>
 
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'user_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'user_name',['labelOptions'=>
+		['class'=>'col-sm-2  control-label'],
+		'template'	=>"{label}\n<div class='col-sm-10'>\n{input}\n</div>\n{hint}\n{error}"
+	])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 

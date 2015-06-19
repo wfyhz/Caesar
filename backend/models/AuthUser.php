@@ -17,6 +17,9 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const STATUS_DEL = -1;  //删除
     const STATUS_NORMAL = 1;    //正常
+	const IS_SUPER_NO = 0;	//非超级管理员
+	const IS_SUPER_YES = 1;	//超级管理员
+
     /**
      * @inheritdoc
      */
@@ -31,8 +34,8 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['id', 'user_name'], 'required'],
-            [['id', 'status'], 'integer'],
+            [['user_name'], 'required'],
+            [['status'], 'integer'],
             [['user_name'], 'string', 'max' => 60],
             [['password'], 'string', 'max' => 32]
         ];
@@ -48,6 +51,7 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
             'user_name' => '管理员',
             'password' => '密码',
             'status' => '状态',
+			'is_super'=>'超级管理员'
         ];
     }
 
@@ -128,4 +132,43 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->user_name;
     }
+
+	/**
+	 * 状态
+	 * @param null $key
+	 * @return mixed
+	 */
+	public static function statusLabel($key=null)
+	{
+		static $status = [
+			self::STATUS_DEL	=>'删除',
+			self::STATUS_NORMAL	=>'正常',
+		];
+
+		if($key !== null && isset($status[$key]))
+		{
+			return $status[$key];
+		}
+
+		return $status;
+	}
+
+	/**
+	 * 是否超级管理员
+	 * @param null $key
+	 * @return mixed
+	 */
+	public static function superLabel($key=null)
+	{
+		static $super = [
+			self::IS_SUPER_NO	=>'否',
+			self::IS_SUPER_YES	=>'是',
+		];
+		if($key !== null && isset($super[$key]))
+		{
+			return $super[$key];
+		}
+
+		return $super;
+	}
 }
