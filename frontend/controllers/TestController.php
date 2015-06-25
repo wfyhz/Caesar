@@ -8,14 +8,17 @@ class TestController extends Controller
 
     public function actionIndex()
     {
+		$red_arr = range(1,36);
+		$blue_arr = range(1,16);
 
-		echo date("m月d日",strtotime('+2 day'));exit;
+		$a =  '每日23:00—23:30为资金清算时<br />段，在此期间不可投资哦。';
+		echo str_replace('<br />', '', $a);exit;
         return $this->render('site/index');
     }
 
 	public  function actionTest()
 	{
-		$token = '6aa0v6VBq99tiPZD/mstjVyWS4UKdzk+0CxGOktAcw';
+		$token = '24abtWW9N6UN6DlaQ8tKoXsyeDBVHsyxqanmWdhMzA';
 		$params = Yii::$app->getRequest()->getQueryParams();
 		$method = $params['method'];
 		$data = array(
@@ -64,6 +67,12 @@ class TestController extends Controller
 			case 'index.bankTip':	//银行维护信息
 				$p = array();
 				break;
+			case 'Pay.bankList':	//银行列表
+				$p =array();
+				break;
+			case 'FixCard.getBank';	//大额行号
+				$p = $this->_get_bank();
+				break;
 			default:
 				echo '参数错误';
 				exit();
@@ -110,7 +119,11 @@ class TestController extends Controller
 			'idCarkNumber'=>'411123198801012546',
 			'bankId'	=>1,
 			'bankName'	=>'招商银行',
-			'cardNumber'=>'6225881014307465',
+			'cardNumber'=>'6228480018456929571',	//6225881014307465
+			//'cardNumber'=>'622848126165749219',	//农行
+			//'cardNumber'=>'6225881014307465',	//招行
+			//'cardNumber'=>'6212261711000238478',	//工行
+			//'cardNumber'=>'6227000014150407041',//建行
 			'name'		=>'苏兴',
 			'pid'	=>'359',
 			'fCode'	=>'asdf',
@@ -224,6 +237,17 @@ class TestController extends Controller
 	private function _withdraw_sms_code()
 	{
 		$data = array();
+		return $data;
+	}
+
+	private function _get_bank()
+	{
+		$data = array(
+			'card_no'	=>'6230200012636382',	//银行卡号
+			'bank_code'=>'9',	//银行编码
+			'city_code'=>'350300',	//市编码
+			'key'		=>'银行',	//支行关键字
+		);
 		return $data;
 	}
 

@@ -40,7 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'password',
             'status',
 
-            //['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn'],
+			/**
 			[   'class' => 'yii\grid\ActionColumn',
 				'template' => '{view} {delete}',
 				'headerOptions' => ['width' => '20%', 'class' => 'activity-view-link',],
@@ -61,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				],
 
 
-			],
+			],**/
 
 		],
     ]); ?>

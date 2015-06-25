@@ -34,8 +34,9 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['user_name'], 'required'],
-            [['status'], 'integer'],
+            [['user_name','password'], 'required'],
+			[['user_name'],'unique'],
+            [['status','is_super'], 'integer'],
             [['user_name'], 'string', 'max' => 60],
             [['password'], 'string', 'max' => 32]
         ];
@@ -48,7 +49,7 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'user_name' => '管理员',
+            'user_name' => '用户名',
             'password' => '密码',
             'status' => '状态',
 			'is_super'=>'超级管理员'
@@ -141,8 +142,9 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
 	public static function statusLabel($key=null)
 	{
 		static $status = [
-			self::STATUS_DEL	=>'删除',
 			self::STATUS_NORMAL	=>'正常',
+			self::STATUS_DEL	=>'删除',
+
 		];
 
 		if($key !== null && isset($status[$key]))
@@ -170,5 +172,15 @@ class AuthUser extends \yii\db\ActiveRecord implements IdentityInterface
 		}
 
 		return $super;
+	}
+
+	public function beforeSave($insert)
+	{
+		if(parent::beforeSave($insert))
+		{
+			$this->password = md5($this->password);
+			return true;
+		}
+		return false;
 	}
 }

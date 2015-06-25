@@ -8,6 +8,9 @@ use yii\data\ActiveDataProvider;
 use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\widgets\ActiveForm;
+use yii\web\Response;
+use yii\helpers\Html;
 
 /**
  * AuthUserController implements the CRUD actions for AuthUser model.
@@ -61,6 +64,7 @@ class AuthUserController extends BaseController
     public function actionCreate()
     {
         $model = new AuthUser();
+		$model->is_super = AuthUser::IS_SUPER_NO;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -118,4 +122,41 @@ class AuthUserController extends BaseController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+	public function actionTestValidate()
+	{
+		$model = new AuthUser();
+		$model->load(Yii::$app->request->post());
+		if (Yii::$app->request->isAjax){
+			$result = [];
+			if($model->load(Yii::$app->request->post()) && $model->save())
+			{//成功
+				$result = [
+					'status'	=>true,
+					'data'		=>[
+						'msg'	=>'添加成功',
+						'model'=>$model
+					]
+				];
+			}
+			else
+			{
+				$r_error = [];
+				foreach($model->getErrors() as $attribute => $errors)
+				{
+					$r_error[Html::getInputId($model, $attribute)] = $errors;
+				}
+
+				$result = [
+					'status'	=>false,
+					'data'		=>[
+						'msg'	=>'添加失败',
+						'error'=>$r_error
+					]
+				];
+			}
+			Yii::$app->response->format = Response::FORMAT_JSON;
+			return $result;
+		}
+	}
 }
