@@ -33,7 +33,7 @@ class iActiveForm extends ActiveForm
 			$attributes = Json::htmlEncode($this->attributes);
 			$view = $this->getView();
 			iActiveFormAsset::register($view);
-			$view->registerJs("jQuery('#$id').yiiActiveForm($attributes, $options);");
+			$view->registerJs("jQuery('#$id').iActiveForm($attributes, $options);");
 		}
 
 		echo Html::endForm();

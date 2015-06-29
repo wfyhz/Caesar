@@ -124,6 +124,7 @@ class TestController extends Controller
 			//'cardNumber'=>'6225881014307465',	//招行
 			//'cardNumber'=>'6212261711000238478',	//工行
 			//'cardNumber'=>'6227000014150407041',//建行
+			'cardNumber'=>'6217000010026994767',
 			'name'		=>'苏兴',
 			'pid'	=>'359',
 			'fCode'	=>'asdf',

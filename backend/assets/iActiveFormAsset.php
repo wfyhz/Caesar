@@ -9,7 +9,7 @@ class iActiveFormAsset extends AssetBundle
 	public $basePath = '@webroot';
 	public $baseUrl = '@web';
 	public $js = [
-		'js/iActiveForm.js',
+		'js/iActiveForm2.js',
 	];
 	public $depends = [
 		'yii\web\YiiAsset',
