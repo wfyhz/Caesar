@@ -8,13 +8,59 @@ class TestController extends Controller
 
     public function actionIndex()
     {
-		$red_arr = range(1,36);
-		$blue_arr = range(1,16);
 
-		$a =  '每日23:00—23:30为资金清算时<br />段，在此期间不可投资哦。';
-		echo str_replace('<br />', '', $a);exit;
+		$length = 5;
+		$num = 2;
+		$red = $this->factor($length)/($this->factor($num)*$this->factor($length-$num));
+		$blue = 16;
+		echo $red;
+		echo '<br/>';
+		$this->redList();
+		exit;
         return $this->render('site/index');
     }
+
+	/**
+	 * 阶乘
+	 * @param $n
+	 * @return int
+	 */
+	protected function factor($n)
+	{
+		if($n == 0 || $n == 1)
+		{
+			return 1;
+		}
+
+		return ($n--)*$this->factor($n);
+	}
+
+	protected function redList()
+	{
+		/*
+		for($head=1; $head<=28; $head++)	//第一个 最小为1，最大为28
+		{
+			for($tail=6; $tail<=33; $tail++)	//最后一个数 最小为6，最大为33
+			{
+
+			}
+		}
+		*/
+
+		$arr = range(1,6);
+		$result = array();
+		for($i=5; $i<=0; $i--)
+		{
+			for($j=$arr[i]; $j<=33; $j++)
+			{
+				if(in_array($j, $arr))
+				{
+
+				}
+			}
+		}
+
+	}
 
 	public  function actionTest()
 	{

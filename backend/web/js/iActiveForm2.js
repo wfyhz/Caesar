@@ -63,7 +63,7 @@
                 if(settings.validationUrl === undefined){
                     settings.validationUrl = $form.attr('action');
                 }
- 
+
                 $.each(attributes, function(i){
                     attributes[i] = $.extend({value:getValue($form, this)}, attributeDefaults, this);
                     watchAttribute($form, attributes[i]);
@@ -74,10 +74,24 @@
                     submitting: false,
                     validated: false
                 });
+
+                $form.bind('reset.'+ spaceName, methods.resetForm());
+                if(settings.validateOnSubmit){
+                    $form.on('mouseup.'+spaceName+' keyup.'+spaceName, ':submit',function(){
+                        $form.data(spaceName).submitObject = $(this);
+                    });
+                    $form.on('submit.'+spaceName, methods.submitForm());
+                }
             });
         },
         add:function(){
 
+        },
+        submitForm:function(){
+            alert('submitForm');
+        },
+        resetForm:function(){
+            alert('resetForm');
         }
     };
 
@@ -91,8 +105,9 @@
     };
 
     var validateAttribute = function($form, attribute, forceValidate, validationDelay){
-        var data = $form.data('iActiveForm');
-        console.log(data);
+        var data = $form.data(spaceName);
+        //@todo 继续。。。
+        alert('validate');
     };
 
     var getValue=function($form, attribute){

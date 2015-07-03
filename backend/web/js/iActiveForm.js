@@ -448,6 +448,7 @@
 
     var watchAttribute = function ($form, attribute) {
         var $input = findInput($form, attribute);
+        alert(attribute.validateOnChange)
         if (attribute.validateOnChange) {
             $input.on('change.yiiActiveForm', function () {
                 validateAttribute($form, attribute, false);
