@@ -74,13 +74,13 @@
                     submitting: false,
                     validated: false
                 });
+                $form.bind('reset.'+ spaceName, methods.resetForm);
 
-                $form.bind('reset.'+ spaceName, methods.resetForm());
                 if(settings.validateOnSubmit){
                     $form.on('mouseup.'+spaceName+' keyup.'+spaceName, ':submit',function(){
                         $form.data(spaceName).submitObject = $(this);
                     });
-                    $form.on('submit.'+spaceName, methods.submitForm());
+                    $form.on('submit.'+spaceName, methods.submitForm);
                 }
             });
         },
@@ -89,9 +89,13 @@
         },
         submitForm:function(){
             alert('submitForm');
+            return false;
         },
         resetForm:function(){
             alert('resetForm');
+        },
+        validate:function(){
+
         }
     };
 
@@ -106,8 +110,36 @@
 
     var validateAttribute = function($form, attribute, forceValidate, validationDelay){
         var data = $form.data(spaceName);
-        //@todo 继续。。。
-        alert('validate');
+        if(forceValidate){
+            attribute.status = 2;
+        }
+        $.each(data.attributes, function(){
+            if(this.value !== getValue($form,this)){
+                this.status = 2;
+                forceValidate = true;
+            }
+        });
+        if(!forceValidate){
+            return;
+        }
+
+        if(data.settings.timer != undefined){
+            clearTimeout(data.settings.timer);
+        }
+
+        data.settings.timer = setTimeout(function(){
+            if(data.submitting || $form.is(':hidden')){
+                return;
+            }
+
+            $.each(data.attributes, function(){
+                if(this.status === 2){
+                    this.status = 3;
+                    $form.find(this.container).addClass(data.settings.validatingCssClass);
+                }
+            });
+            methods.validate.call($form);
+        },validationDelay ? validationDelay : 200);
     };
 
     var getValue=function($form, attribute){

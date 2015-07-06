@@ -9,13 +9,20 @@ class TestController extends Controller
     public function actionIndex()
     {
 
-		$length = 5;
-		$num = 2;
+		$length = 10;
+		$num = 3;
 		$red = $this->factor($length)/($this->factor($num)*$this->factor($length-$num));
 		$blue = 16;
 		echo $red;
 		echo '<br/>';
-		$this->redList();
+		$red_list = $this->redList();
+		$result = array();
+		foreach($red_list as $v)
+		{
+			sort($v);
+			$result[implode(',',$v)] = '';
+		}
+		var_dump(count($result));
 		exit;
         return $this->render('site/index');
     }
@@ -37,28 +44,43 @@ class TestController extends Controller
 
 	protected function redList()
 	{
-		/*
-		for($head=1; $head<=28; $head++)	//第一个 最小为1，最大为28
-		{
-			for($tail=6; $tail<=33; $tail++)	//最后一个数 最小为6，最大为33
-			{
-
-			}
-		}
-		*/
-
-		$arr = range(1,6);
+		$max =10;
+		$arr = range(1,3);
+		$arr_max_index = 2;
 		$result = array();
-		for($i=5; $i<=0; $i--)
+		for($i=$arr_max_index; $i>=0; $i--)
 		{
-			for($j=$arr[i]; $j<=33; $j++)
+			$temp = array_slice($arr, 0, $i+1);
+			var_dump($temp);
+			for($j=$arr[$i]+1; $j<=$max; $j++)
 			{
 				if(in_array($j, $arr))
-				{
+					continue;
 
-				}
+				$temp[$i] = $j;
+				$result[] = $temp;
 			}
 		}
+		return $result;
+
+	}
+
+	/**
+	 * @param $start
+	 * @param int $cycles 循环次数
+	 * @param int $max 最大值
+	 * @return array
+	 */
+	protected function _test($start, $cycles, $max=33)
+	{
+		if($cycles == 0 || $cycles == 1)
+		{
+			return range($start, $max);
+		}
+
+		$t = $this->_test($start-1,0);
+
+
 
 	}
 
@@ -290,7 +312,7 @@ class TestController extends Controller
 	private function _get_bank()
 	{
 		$data = array(
-			'card_no'	=>'6230200012636382',	//银行卡号
+			'card_no'	=>'6212260200059789319',	//银行卡号
 			'bank_code'=>'9',	//银行编码
 			'city_code'=>'350300',	//市编码
 			'key'		=>'银行',	//支行关键字
