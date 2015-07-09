@@ -43,6 +43,9 @@ return [
 					'basePath'	=>'@common/languages'
 				]
 			]
+		],
+		'authManager'	=>[
+			'class' => 'yii\rbac\DbManager',
 		]
     ],
     'params' => $params,
