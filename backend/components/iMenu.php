@@ -29,6 +29,10 @@ class iMenu extends Menu
 			$options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
 			$tag = ArrayHelper::remove($options, 'tag', 'li');
 			$class = [];
+			$isSubItemActive = $this->isSubItemActive($item);
+			if($isSubItemActive){
+				$item['active'] = true;
+			}
 			if ($item['active']) {
 				$class[] = $this->activeCssClass;
 			}
@@ -51,7 +55,7 @@ class iMenu extends Menu
 				if(isset($item['subMenuOptions']))
 				{
 					$subMeunOptions = $item['subMenuOptions'];
-					$isSubItemActive = $this->isSubItemActive($item);
+					//$isSubItemActive = $this->isSubItemActive($item);
 					$css = isset($subMeunOptions['class']) ? $subMeunOptions['class'] : '';
 					$subMeunOptions['class'] = $isSubItemActive ? $css.' '.$this->subItemActiveCss : $css;
 					$tempSubmenuTemplate = Html::tag('ul',"\n{items}\n", $subMeunOptions);
@@ -167,13 +171,23 @@ class iMenu extends Menu
 	protected function isItemActive($item)
 	{
 		if (isset($item['url']) && is_array($item['url']) && isset($item['url'][0])) {
+
 			$route = $item['url'][0];
 			if ($route[0] !== '/' && Yii::$app->controller) {
 				$route = Yii::$app->controller->module->getUniqueId() . '/' . $route;
 			}
+
+			if(isset($item['manageItems']) && is_array($item['manageItems']))
+			{
+				//var_dump($this->route);
+				if(in_array($this->route, $item['manageItems'])){
+					return true;
+				}
+			}
 			if (ltrim($route, '/') !== $this->route) {
 				return false;
 			}
+
 			unset($item['url']['#']);
 			if (count($item['url']) > 1) {
 				$params = $item['url'];

@@ -62,6 +62,7 @@ AppAsset::register($this);
 					[
 						'label'	=>'<i class="glyphicon glyphicon-user"></i>用户管理',
 						'url'		=>['auth-user/index'],
+						'manageItems'=>['auth-user/view','auth-user/update']
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-th-list"></i>菜单管理',

@@ -298,7 +298,7 @@ class TestController extends Controller
 	{
 		$data = array(
 			'pid'	=>'359',
-			'money'=>'100.00'
+			'money'=>'10000000'
 		);
 		return $data;
 	}
