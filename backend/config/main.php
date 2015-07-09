@@ -36,6 +36,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+		'i18n'	=>[
+			'translations'	=>[
+				'admin'	=>[
+					'class'	=>'yii\i18n\PhpMessageSource',
+					'basePath'	=>'@common/languages'
+				]
+			]
+		]
     ],
     'params' => $params,
 	'defaultRoute'	=>'index'

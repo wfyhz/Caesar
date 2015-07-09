@@ -21,8 +21,8 @@ $field_options = ['labelOptions'=>
 		'successCssClass'=>'',
 		//'enableAjaxValidation'	=>true,
 		//'validationUrl'	=>['auth-user/test-validate'],
-		'enableAjaxSubmit'=>true,
-		'ajaxSubmitUrl'	=>['auth-user/test-validate']
+		//'enableAjaxSubmit'=>true,
+		//'ajaxSubmitUrl'	=>['auth-user/test-validate']
 	];
 	$form = iActiveForm::begin($form_param);
 	?>
