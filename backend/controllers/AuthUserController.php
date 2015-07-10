@@ -159,4 +159,9 @@ class AuthUserController extends BaseController
 			return $result;
 		}
 	}
+
+	public function actionTest()
+	{
+		var_dump(Yii::$app->user->can('Create'));
+	}
 }
