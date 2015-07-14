@@ -12,11 +12,19 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
 	'language'	=>'zh-CN',
+	//yii2-admin
+	'aliases'	=>[
+		'@mdm/admin'	=>'@vendor/mdmsoft/yii2-admin'
+	],
     'modules' => [
         'gii'   =>[
             'class' =>'yii\gii\Module',
             'allowedIPs'=>['127.0.0.1','::1','10.101.26.*']
         ],
+		//yii2-admin
+		'admin'	=>[
+			'class'	=>'mdm\admin\Module',
+		],
     ],
     'components' => [
         'user' => [
@@ -48,6 +56,14 @@ return [
 			'class' => 'yii\rbac\DbManager',
 		]
     ],
+	//yii2-admin
+	'as access'	=>[
+		'class'	=>'mdm\admin\components\AccessControl',
+		'allowActions'	=>[
+			'site/*',
+			'admin/*',
+		]
+	],
     'params' => $params,
 	'defaultRoute'	=>'index'
 ];

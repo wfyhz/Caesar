@@ -18,7 +18,8 @@
         "yiisoft/yii2": ">=2.0.4",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "sansusan/yii2-easyui": "dev-master"
+        "sansusan/yii2-easyui": "dev-master",
+        "mdmsoft/yii2-admin": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
