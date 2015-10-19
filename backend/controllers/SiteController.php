@@ -50,11 +50,11 @@ class SiteController extends BaseController
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-			'captcha'	=>[
-				'class'		=>'yii\captcha\CaptchaAction',
-				'maxLength'	=>5,
-				'minLength'	=>5
-			],
+			// 'captcha'	=>[
+			// 	'class'		=>'yii\captcha\CaptchaAction',
+			// 	'maxLength'	=>5,
+			// 	'minLength'	=>5
+			// ],
         ];
     }
 
