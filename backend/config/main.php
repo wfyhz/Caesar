@@ -54,7 +54,13 @@ return [
 		],
 		'authManager'	=>[
 			'class' => 'yii\rbac\DbManager',
-		]
+		],
+        'view'  =>[
+            'theme' =>[
+                'pathMap'   =>['@backend/views'=>'@backend/themes/basic/views'],
+                'baseUrl'   =>'@web/themes/basic'
+            ]
+        ],
     ],
 	//yii2-admin
 	'as access'	=>[

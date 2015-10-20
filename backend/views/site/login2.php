@@ -46,7 +46,7 @@ $this->title = 'Admin后台管理';
 				?>
 		</div> -->
 		<div class="row">
-			<?= Html::submitButton('登录',['class'=>'btn btn-primary'])?>
+			<?= Html::submitButton('登录2',['class'=>'btn btn-primary'])?>
 		</div>
 	</div>
 </div>

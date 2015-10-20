@@ -16,9 +16,9 @@ use yii\web\AssetBundle;
 class LoginAsset extends AssetBundle
 {
 	public $basePath = '@webroot';
-	public $baseUrl = '@web';
+	public $sourcePath = '@app/themes/basic/source';
 	public $css = [
-		'css/login.css',
+		'css/base.css',
 	];
 	public $js = [
 	];
