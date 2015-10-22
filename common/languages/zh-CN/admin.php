@@ -13,4 +13,5 @@ return [
 	'The password is incorrect'=>'密码不正确',
 	'User Name'		=>'用户名',
 	'Password'		=>'密码',
+	'Login'			=>'登录'
 ];
