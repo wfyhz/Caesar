@@ -11,7 +11,7 @@ class LoginForm extends Model
 {
     public $username;
     public $password;
-    public $rememberMe = true;
+    public $rememberMe = false;
 	public $verifyCode;
 
     private $_user = false;
@@ -29,8 +29,8 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
-			['verifyCode','required'],
-			['verifyCode','captcha'],
+//			['verifyCode','required'],
+//			['verifyCode','captcha'],
         ];
     }
 
@@ -45,8 +45,13 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, '用户名或密码不正确.');
+            if(!$user)
+            {
+                $this->addError('username',\Yii::t('admin', 'Incorrect username'));
+                return;
+            }
+            if (!$user->validatePassword($this->password)) {
+                $this->addError($attribute, \Yii::t('admin','The password is incorrect'));
             }
         }
     }
@@ -86,8 +91,8 @@ class LoginForm extends Model
 	public function attributeLabels()
 	{
 		return [
-			'username'		=>'用户名',
-			'password'		=>'密码',
+			'username'		=>\Yii::t('admin','User Name'),
+			'password'		=>\Yii::t('admin','Password'),
 			'rememberMe'	=>'自动登录',
 			'verifyCode'	=>'验证码',
 		];
