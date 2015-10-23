@@ -8,6 +8,7 @@
 return [
 	'Create'	=>'添加',
 	'Administrator List'	=>'管理员列表',
+	'Home'		=>'首页',
 	//Login
 	'Incorrect username'	=>'用户名不正确',
 	'The password is incorrect'=>'密码不正确',
