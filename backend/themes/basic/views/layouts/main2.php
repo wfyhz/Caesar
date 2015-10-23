@@ -1,14 +1,13 @@
 <?php
-use backend\assets\AppAsset;
+use backend\assets\LoginAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-AppAsset::register($this);
+LoginAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -66,7 +65,7 @@ AppAsset::register($this);
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-th-list"></i>菜单管理',
-						'url'		=>'#'
+						'url'		=>['auth-user/create']
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-asterisk"></i>角色管理',
@@ -130,6 +129,7 @@ AppAsset::register($this);
 			'id'	=>'main-nav',
 			'class'=>'nav nav-tabs nav-stacked'
 		],
+		'linkTemplate'	=>'<a href="{url}" target="contents">{label}</a>',
 
 	];
 	?>
@@ -139,21 +139,22 @@ AppAsset::register($this);
 				<?= \backend\components\iMenu::widget($menus) ?>
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-9">
-				<?= Breadcrumbs::widget([
-					'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-				]) ?>
-				<?= $content ?>
+				<!-- 16:9 aspect ratio -->
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe name="contents" class="embed-responsive-item" src="<?php echo Url::to(['index/index'])?>"></iframe>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<footer class="footer">
-	<div class="container">
-		<p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-		<p class="pull-right"><?= Yii::powered() ?></p>
-	</div>
-</footer>
+
+<!--<footer class="footer">-->
+<!--	<div class="container">-->
+<!--		<p class="pull-left">&copy; My Company --><?//= date('Y') ?><!--</p>-->
+<!--		<p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
+<!--	</div>-->
+<!--</footer>-->
 
 <?php $this->endBody() ?>
 </body>

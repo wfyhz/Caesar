@@ -63,13 +63,14 @@ return [
         ],
     ],
 	//yii2-admin
+    /*
 	'as access'	=>[
 		'class'	=>'mdm\admin\components\AccessControl',
 		'allowActions'	=>[
 			'site/*',
 			'admin/*',
 		]
-	],
+	],*/
     'params' => $params,
-	'defaultRoute'	=>'index'
+//	'defaultRoute'	=>'index'
 ];
