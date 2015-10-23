@@ -61,7 +61,6 @@ LoginAsset::register($this);
 					[
 						'label'	=>'<i class="glyphicon glyphicon-user"></i>用户管理',
 						'url'		=>['auth-user/index'],
-						'manageItems'=>['auth-user/view','auth-user/update','auth-user/create']
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-th-list"></i>菜单管理',
@@ -81,7 +80,7 @@ LoginAsset::register($this);
 					]
 				],
 				'titleOptions'	=>['class'=>'nav-header collapsed','data-toggle'=>'collapse'],
-				'subMenuOptions'	=>['class'=>'nav nav-list collapse secondmenu','id'=>'systemSetting1']
+				'subMenuOptions'	=>['class'=>'nav nav-list collapse sub-menu','id'=>'systemSetting1']
 			],
 			[
 				'label'	=>'<i class="glyphicon glyphicon-credit-card"></i> 物料管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>',
@@ -109,7 +108,7 @@ LoginAsset::register($this);
 					]
 				],
 				'titleOptions'	=>['class'=>'nav-header collapsed','data-toggle'=>'collapse'],
-				'subMenuOptions'	=>['class'=>'nav nav-list collapse secondmenu','id'=>'wuliaoSetting']
+				'subMenuOptions'	=>['class'=>'nav nav-list collapse sub-menu','id'=>'wuliaoSetting']
 			],
 			[
 				'label'	=>'<i class="glyphicon glyphicon-globe"></i>分发配置<span class="label label-warning pull-right">5</span>',
