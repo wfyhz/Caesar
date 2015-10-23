@@ -16,3 +16,7 @@ body{
 .wrap >.container{
 	padding-top: 70px;
 }
+.wrap >.container-fluid
+{
+	padding-top: 70px;
+}
