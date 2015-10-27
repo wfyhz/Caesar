@@ -3,18 +3,11 @@
  */
 var App=function(){
     var handleMenu = function(){
-        $('.sub-menu').on('click','li>a', function (e) {
-
-            var parent = $(this).parent();
-            $('.sub-menu li').each(function(){
-                $(this).removeClass('activeMenu');
-                $(this).parent().parent().removeClass('active');
+        $('#main-nav').on('click', 'li>a',function(){
+            $('#main-nav a').each(function(){
+                $(this).removeClass('activeMenu')
             });
-
-            parent.addClass('activeMenu');
-            var sub_menu_ul = parent.parent();
-            sub_menu_ul.parent().addClass('active');
-            //e.preventDefault();
+            $(this).addClass('activeMenu');
         })
     };
     return {
@@ -27,9 +20,9 @@ var App=function(){
 $(document).ready(function(){
     App.init();
     $('.collapse').on('show.bs.collapse',function(){
-        $(this).parent().addClass('active');
+        //$(this).parent().addClass('activeMenu');
     });
     $('.collapse').on('hide.bs.collapse',function(){
-        $(this).parent().removeClass('active');
+        //$(this).parent().removeClass('activeMenu');
     })
 })

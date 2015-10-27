@@ -48,6 +48,8 @@ LoginAsset::register($this);
 	]);
 	NavBar::end();
 
+
+
 	$menus = [
 		'items'	=>[
 			[
@@ -79,8 +81,9 @@ LoginAsset::register($this);
 						'url'		=>'#'
 					]
 				],
-				'titleOptions'	=>['class'=>'nav-header collapsed','data-toggle'=>'collapse'],
-				'subMenuOptions'	=>['class'=>'nav nav-list collapse sub-menu','id'=>'systemSetting1']
+
+				'linkOptions'	=>['class'=>'collapse-toggle collapsed','data-toggle'=>'collapse','data-parent'=>'#main-nav','aria-expanded'=>"false"],
+				'submenuOptions'	=>['class'=>'nav nav-list panel-collapse collapse','id'=>'systemSetting1']
 			],
 			[
 				'label'	=>'<i class="glyphicon glyphicon-credit-card"></i> 物料管理<span class="pull-right glyphicon glyphicon-chevron-down"></span>',
@@ -107,35 +110,27 @@ LoginAsset::register($this);
 						'url'		=>'#'
 					]
 				],
-				'titleOptions'	=>['class'=>'nav-header collapsed','data-toggle'=>'collapse'],
-				'subMenuOptions'	=>['class'=>'nav nav-list collapse sub-menu','id'=>'wuliaoSetting']
+				'linkOptions'	=>['class'=>'collapse-toggle collapsed','data-toggle'=>'collapse','data-parent'=>'#main-nav','aria-expanded'=>"false"],
+				'submenuOptions'	=>['class'=>'nav nav-list collapse sub-menu','id'=>'wuliaoSetting']
 			],
-			[
-				'label'	=>'<i class="glyphicon glyphicon-globe"></i>分发配置<span class="label label-warning pull-right">5</span>',
-				'url'		=>'#',
-			],
-			[
-				'label'	=>'<i class="glyphicon glyphicon-calendar"></i>图表统计',
-				'url'		=>'#',
-			],
-			[
-				'label'	=>'<i class="glyphicon glyphicon-fire"></i>关于统计',
-				'url'		=>'#',
-			]
+
 		],
 		'encodeLabels'	=>false,
 		'options'			=>[
 			'id'	=>'main-nav',
-			'class'=>'nav nav-tabs nav-stacked'
+			'class'=>'nav nav-tabs nav-stacked panel-group collapse in',
+			'aria-expanded'=>'true'
 		],
 		'linkTemplate'	=>'<a href="{url}" target="contents">{label}</a>',
-
+		'itemOptions'	=>['class'=>'panel panel-default'],
 	];
 	?>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-3">
-				<?= \backend\components\iMenu::widget($menus) ?>
+				<?php
+					echo \backend\components\iMenu2::widget($menus);
+				?>
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-9">
 				<!-- 16:9 aspect ratio -->
