@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\AuthUser */
 
-$this->title = 'Create Auth User';
-$this->params['breadcrumbs'][] = ['label' => 'Auth Users', 'url' => ['index']];
+$this->title = \Yii::t('admin','Add Auth User');
+$this->params['breadcrumbs'][] = ['label' => \Yii::t('admin','Administrator List'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-user-create">

@@ -6,8 +6,13 @@
  * Time: 14:53
  */
 return [
-	'Create'	=>'添加',
+	'Add'	=>'新增',
+	'Save'	=>'保存',
+	'Delete'	=>'删除',
 	'Administrator List'	=>'管理员列表',
+	'Add Auth User'		=>'添加管理员',
+	'Change'	=>'修改信息',
+	'View'		=>'查看',
 	'Home'		=>'首页',
 	//Login
 	'Incorrect username'	=>'用户名不正确',

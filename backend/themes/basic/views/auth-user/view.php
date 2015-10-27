@@ -6,23 +6,26 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\AuthUser */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Auth Users', 'url' => ['index']];
+$this->title = \Yii::t('admin','View');
+$this->params['breadcrumbs'][] = ['label' => \Yii::t('admin','Administrator List'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-user-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?php
+        if($model->is_super !== \backend\models\AuthUser::IS_SUPER_YES)
+        {
+            echo Html::a(\Yii::t('admin','Change'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
+            echo '&nbsp;';
+            echo Html::a(\Yii::t('admin','Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]);
+        }
+        ?>
     </p>
 
     <?= DetailView::widget([
@@ -30,8 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'user_name',
-            'password',
-            'status',
+            [
+                'attribute' =>'status',
+                'value' =>\backend\models\AuthUser::statusLabel($model->status)
+            ]
         ],
     ]) ?>
 
