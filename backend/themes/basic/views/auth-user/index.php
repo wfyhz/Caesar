@@ -12,25 +12,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="auth-user-index">
 
-
-    <p>
-        <?php //Html::a('Create Auth User', ['create'], ['class' => 'btn btn-success','id'=>'modalButton','onclick'=>'authUser.add(this);return false']) ?>
-    </p>
 	<p>
-		<?= Html::a(Yii::t('admin','Create'), ['create'], ['class' => 'btn btn-success','id'=>'modalButton']) ?>
+		<?= Html::a(Yii::t('admin','Create'), ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
-	<!--引入模态对话框 -->
-	<?php
-	\yii\bootstrap\Modal::begin([
-		'header' => '<h2>'.Html::encode($this->title) .'</h2>',
-		'id'=>'modal',
-		'size'=>'modal-lg',
-	]);
-	echo '<div id="modalContent"> </div>';
-
-	\yii\bootstrap\Modal::end()
-	?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
