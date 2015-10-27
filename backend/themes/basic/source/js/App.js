@@ -20,9 +20,17 @@ var App=function(){
 $(document).ready(function(){
     App.init();
     $('.collapse').on('show.bs.collapse',function(){
-        //$(this).parent().addClass('activeMenu');
+        var s = $(this).parent().children('a').children('span');
+        if(s != 'undefined')
+        {
+            s.removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        }
     });
     $('.collapse').on('hide.bs.collapse',function(){
-        //$(this).parent().removeClass('activeMenu');
+        var s = $(this).parent().children('a').children('span');
+        if(s != 'undefined')
+        {
+            s.removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+        }
     })
 })

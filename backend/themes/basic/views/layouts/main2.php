@@ -127,12 +127,12 @@ LoginAsset::register($this);
 	?>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-3">
+			<div class="col-lg-3 col-md-3 col-sm-3 leftMenu">
 				<?php
 					echo \backend\components\iMenu2::widget($menus);
 				?>
 			</div>
-			<div class="col-lg-9 col-md-9 col-sm-9">
+			<div class="col-lg-9 col-md-9 col-sm-9 rightContent">
 				<!-- 16:9 aspect ratio -->
 				<div class="embed-responsive embed-responsive-16by9">
 					<iframe name="contents" class="embed-responsive-item" src="<?php echo Url::to(['index/index'])?>"></iframe>
