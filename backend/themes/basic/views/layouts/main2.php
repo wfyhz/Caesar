@@ -69,8 +69,8 @@ LoginAsset::register($this);
 						'url'		=>['auth-user/create']
 					],
 					[
-						'label'	=>'<i class="glyphicon glyphicon-asterisk"></i>角色管理',
-						'url'		=>'#',
+						'label'	=>'<i class="glyphicon glyphicon-asterisk"></i>商品分类',
+						'url'		=>['category/index'],
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-edit"></i>修改密码',
