@@ -75,4 +75,31 @@ return array (
       '@mdm/admin' => $vendorDir . '/mdmsoft/yii2-admin',
     ),
   ),
+  'creocoder/yii2-nested-sets' => 
+  array (
+    'name' => 'creocoder/yii2-nested-sets',
+    'version' => '0.9.0.0',
+    'alias' => 
+    array (
+      '@creocoder/nestedsets' => $vendorDir . '/creocoder/yii2-nested-sets/src',
+    ),
+  ),
+  'yiisoft/yii2-jui' => 
+  array (
+    'name' => 'yiisoft/yii2-jui',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
+    ),
+  ),
+  'gilek/yii2-gtreetable' => 
+  array (
+    'name' => 'gilek/yii2-gtreetable',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@gilek/gtreetable' => $vendorDir . '/gilek/yii2-gtreetable',
+    ),
+  ),
 );

@@ -12,14 +12,16 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.4",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "sansusan/yii2-easyui": "dev-master",
-        "mdmsoft/yii2-admin": "dev-master"
+        "mdmsoft/yii2-admin": "dev-master",
+        "fxp/composer-asset-plugin": "^1.1",
+        "gilek/yii2-gtreetable": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
+    'yii\\jui\\' => array($vendorDir . '/yiisoft/yii2-jui'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker'),
     'yii\\debug\\' => array($vendorDir . '/yiisoft/yii2-debug'),
@@ -16,5 +17,8 @@ return array(
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'sansusan\\easyui\\' => array($vendorDir . '/sansusan/yii2-easyui'),
     'mdm\\admin\\' => array($vendorDir . '/mdmsoft/yii2-admin'),
+    'gilek\\gtreetable\\' => array($vendorDir . '/gilek/yii2-gtreetable'),
+    'creocoder\\nestedsets\\' => array($vendorDir . '/creocoder/yii2-nested-sets/src'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
+    'Fxp\\Composer\\AssetPlugin\\' => array($vendorDir . '/fxp/composer-asset-plugin'),
 );
