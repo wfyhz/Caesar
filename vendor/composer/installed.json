@@ -1393,5 +1393,98 @@
             "tree",
             "yii2"
         ]
+    },
+    {
+        "name": "troy/yii2-image-upload",
+        "version": "1.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lygfanye/yii2-image-upload.git",
+            "reference": "1efa129d2488258fc6b3fee58f42302b39e017cc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/lygfanye/yii2-image-upload/zipball/1efa129d2488258fc6b3fee58f42302b39e017cc",
+            "reference": "1efa129d2488258fc6b3fee58f42302b39e017cc",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2014-12-17 03:01:02",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "troy\\ImageUpload\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "troyfan",
+                "email": "fan_ye@hotmail.com"
+            }
+        ],
+        "description": "upload image via ajax",
+        "keywords": [
+            "ajax",
+            "extension",
+            "image-upload",
+            "yii2"
+        ]
+    },
+    {
+        "name": "mdmsoft/yii2-upload-file",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mdmsoft/yii2-upload-file.git",
+            "reference": "c44f0d9694e02a7b62a270f142ae1cc1f2638435"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mdmsoft/yii2-upload-file/zipball/c44f0d9694e02a7b62a270f142ae1cc1f2638435",
+            "reference": "c44f0d9694e02a7b62a270f142ae1cc1f2638435",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "~2.0"
+        },
+        "time": "2015-10-26 10:58:52",
+        "type": "yii2-extension",
+        "extra": {
+            "bootstrap": "mdm\\upload\\Bootstrap",
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "mdm\\upload\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Misbahul Munir",
+                "email": "misbahuldmunir@gmail.com"
+            }
+        ],
+        "description": "Yii2 upload file tools",
+        "keywords": [
+            "file",
+            "upload",
+            "yii"
+        ]
     }
 ]

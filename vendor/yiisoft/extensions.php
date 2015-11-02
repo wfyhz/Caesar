@@ -102,4 +102,23 @@ return array (
       '@gilek/gtreetable' => $vendorDir . '/gilek/yii2-gtreetable',
     ),
   ),
+  'troy/yii2-image-upload' => 
+  array (
+    'name' => 'troy/yii2-image-upload',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@troy/ImageUpload' => $vendorDir . '/troy/yii2-image-upload',
+    ),
+  ),
+  'mdmsoft/yii2-upload-file' => 
+  array (
+    'name' => 'mdmsoft/yii2-upload-file',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@mdm/upload' => $vendorDir . '/mdmsoft/yii2-upload-file',
+    ),
+    'bootstrap' => 'mdm\\upload\\Bootstrap',
+  ),
 );

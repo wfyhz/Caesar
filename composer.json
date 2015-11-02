@@ -21,7 +21,9 @@
         "sansusan/yii2-easyui": "dev-master",
         "mdmsoft/yii2-admin": "dev-master",
         "fxp/composer-asset-plugin": "^1.1",
-        "gilek/yii2-gtreetable": "*"
+        "gilek/yii2-gtreetable": "*",
+        "troy/yii2-image-upload": "^1.0",
+        "mdmsoft/yii2-upload-file": "^1.2"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
