@@ -31,7 +31,6 @@ $routes = array_merge([
     'nodeCreate' => $controller.'nodeCreate',
     'nodeUpdate' => $controller.'nodeUpdate',
     'nodeDelete' => $controller.'nodeDelete',
-    'nodeMove' => $controller.'nodeMove'
 ],$routes);
 
 $defaultOptions = [
@@ -53,7 +52,8 @@ $defaultOptions = [
                 parent: oNode.getParent(),
                 name: oNode.getName(),
                 position: oNode.getInsertPosition(),
-                related: oNode.getRelatedNodeId()
+                related: oNode.getRelatedNodeId(),
+                _csrf:'".Yii::$app->request->getCsrfToken()."'
             },
             dataType: 'json',
             error: function(XMLHttpRequest) {
@@ -66,25 +66,67 @@ $defaultOptions = [
             type: 'POST',
             url: URI('".Url::to([$routes['nodeDelete']])."').addSearch({'id':oNode.getId()}).toString(),
             dataType: 'json',
-            error: function(XMLHttpRequest) {
-                alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
-            }
-        };        
-    }"),
-    'onMove' => new JsExpression("function(oSource, oDestination, position) {
-        return {
-            type: 'POST',
-            url: URI('".Url::to([$routes['nodeMove']])."').addSearch({'id':oSource.getId()}).toString(),
-            data: {
-                related: oDestination.getId(),
-                position: position
+            data:{
+            _csrf:'".Yii::$app->request->getCsrfToken()."'
             },
-            dataType: 'json',
             error: function(XMLHttpRequest) {
                 alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
             }
         };        
     }"),
+    'languages' =>new JsExpression("{
+        'zh-CN':{
+            'save':'保存',
+            'cancel':'取消',
+            'action':'操作',
+            'actions':{
+                createBefore: '之前创建',
+                createAfter: '创建兄弟节点',
+                createFirstChild: '创建第一个子节点',
+                createLastChild: '创建子节点',
+                update: '修改',
+                delete: '删除'
+            },
+            messages: {
+                onDelete: '你确定删除?',
+                onNewRootNotAllowed: '不允许添加新的根节点.',
+                onMoveInDescendant: '目标节点不能是后裔节点T.',
+                onMoveAsRoot: '目标节点不能是根节点.'
+            }
+        },
+    }"),
+    'defaultActions'    =>new JsExpression("[
+        {
+            name: '\${createAfter}',
+            event: function (oNode, oManager) {
+                oNode.add('after', 'default');
+            }
+        },
+        {
+            name: '\${createLastChild}',
+            event: function (oNode, oManager) {
+                oNode.add('lastChild', 'default');
+            }
+        },
+        {
+            divider: true
+        },
+        {
+            name: '\${update}',
+            event: function (oNode, oManager) {
+                oNode.makeEditable();
+            }
+        },
+        {
+            name: '\${delete}',
+            event: function (oNode, oManager) {
+                if (confirm(oManager.language.messages.onDelete)) {
+                    oNode.remove();
+                }
+            }
+        }
+    ]"),
+
     'language' => Yii::$app->language,
 ];
 $columnName = '分类';
