@@ -4,4 +4,12 @@ $this->params['breadcrumbs'] = [
 	['label'	=>'demo2']
 ];
 ?>
-<h1>Welcome.</h1>
+	<a id="imageUpload" href="javascript:;">上传图片</a>
+<?= \troy\ImageUpload\ImageUpload::widget(
+	[
+		'targetId' => 'imageUpload',//html dom id
+		'config' =>[
+			'action' =>Yii::$app->getUrlManager()->createUrl(['site/index'])
+		]
+	]
+); ?>

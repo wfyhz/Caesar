@@ -55,12 +55,17 @@ class SiteController extends BaseController
 			// 	'maxLength'	=>5,
 			// 	'minLength'	=>5
 			// ],
+            'upload' => [
+                'class' => 'troy\ImageUpload\UploadAction',
+                'successCallback' => [$this, 'successCallback'],
+                'beforeStoreCallback' => [$this,'beforeStoreCallback']
+            ],
         ];
     }
 
     public function actionIndex()
     {
-        $this->layout="main2";
+        //$this->layout="main2";
         return $this->render('index');
     }
 
@@ -86,5 +91,11 @@ class SiteController extends BaseController
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    public function successCallback($store,$file)
+    {
+    }
+    public function beforeStoreCallback($file)
+    {
     }
 }

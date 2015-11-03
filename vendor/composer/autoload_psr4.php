@@ -15,6 +15,7 @@ return array(
     'yii\\codeception\\' => array($vendorDir . '/yiisoft/yii2-codeception'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
+    'xj\\uploadify\\' => array($vendorDir . '/xj/yii2-uploadify-widget'),
     'troy\\ImageUpload\\' => array($vendorDir . '/troy/yii2-image-upload'),
     'sansusan\\easyui\\' => array($vendorDir . '/sansusan/yii2-easyui'),
     'mdm\\upload\\' => array($vendorDir . '/mdmsoft/yii2-upload-file'),

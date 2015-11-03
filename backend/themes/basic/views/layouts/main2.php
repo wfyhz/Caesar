@@ -73,8 +73,8 @@ LoginAsset::register($this);
 						'url'		=>['category/index'],
 					],
 					[
-						'label'	=>'<i class="glyphicon glyphicon-edit"></i>修改密码',
-						'url'		=>'#',
+						'label'	=>'<i class="glyphicon glyphicon-edit"></i>图片上传',
+						'url'		=>['site/index'],
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-eye-open"></i>日志查看',

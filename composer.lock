@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98117f09ae7eb6e14912e4b44a1e6e10",
-    "content-hash": "066a178115c353a70786cb3cd96822a9",
+    "hash": "dcc16c6cc67d293d255ce90ea6ec8317",
+    "content-hash": "2626358f6f36feeac5cc4b769e4b3173",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -846,6 +846,42 @@
                 "yii2"
             ],
             "time": "2014-12-17 03:01:02"
+        },
+        {
+            "name": "xj/yii2-uploadify-widget",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xjflyttp/yii2-uploadify-widget.git",
+                "reference": "7cfe047f252d9f938bcd229d3933ab27a0ce00fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xjflyttp/yii2-uploadify-widget/zipball/7cfe047f252d9f938bcd229d3933ab27a0ce00fe",
+                "reference": "7cfe047f252d9f938bcd229d3933ab27a0ce00fe",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xj\\uploadify\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "xjflyttp",
+                    "email": "xjflyttp@gmail.com"
+                }
+            ],
+            "description": "yii2-uploadify-widget",
+            "time": "2015-09-11 15:27:53"
         },
         {
             "name": "yiisoft/yii2",
