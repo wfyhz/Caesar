@@ -74,7 +74,7 @@ LoginAsset::register($this);
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-edit"></i>图片上传',
-						'url'		=>['site/index'],
+						'url'		=>['site/test'],
 					],
 					[
 						'label'	=>'<i class="glyphicon glyphicon-eye-open"></i>日志查看',
